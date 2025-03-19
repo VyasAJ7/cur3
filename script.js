@@ -7,7 +7,7 @@ function checkWhitelist() {
 
     document.getElementById("loading").style.display = "block";
 
-    fetch("https://script.google.com/macros/s/AKfycbyUrL9Kd2zHiZE5LK6mMZBItiAI4865kJ0_23YvwGDgnUeMySfmwOyiplndcAWFRqbm/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxHaBThcaO1GrMi1yd-egTQomjJSBpeJ2VRQGC7pipdMh2XkqA4zsNMJfO7HeNBsTv6/exec", {
         method: "POST",
         body: JSON.stringify({ userWhitelist }),
         headers: {
