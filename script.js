@@ -7,7 +7,7 @@ function checkWhitelist() {
 
     document.getElementById("loading").style.display = "block";
 
-    fetch("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL", { // Replace with actual URL
+    fetch("https://script.google.com/macros/s/AKfycbxHaBThcaO1GrMi1yd-egTQomjJSBpeJ2VRQGC7pipdMh2XkqA4zsNMJfO7HeNBsTv6/exec", { // Replace with actual URL
         method: "POST",
         mode: "cors", // Allow cross-origin requests
         headers: {
