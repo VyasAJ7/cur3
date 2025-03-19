@@ -7,7 +7,7 @@ function checkWhitelist() {
 
     document.getElementById("loading").style.display = "block";
 
-    fetch("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL", {
+    fetch("https://script.google.com/macros/s/AKfycbyTNBGpnGRVJilWj9e9akOht182D6F8M_Ra2PmKsRbOTgjS32Z5ZJi1MSQlGrAlsjVy/exec", {
         method: "POST",
         body: JSON.stringify({ userWhitelist }),
         headers: {
