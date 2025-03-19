@@ -7,12 +7,13 @@ function checkWhitelist() {
 
     document.getElementById("loading").style.display = "block";
 
-    fetch("https://script.google.com/macros/s/AKfycbxHaBThcaO1GrMi1yd-egTQomjJSBpeJ2VRQGC7pipdMh2XkqA4zsNMJfO7HeNBsTv6/exec", {
+    fetch("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL", { // Replace with actual URL
         method: "POST",
-        body: JSON.stringify({ userWhitelist }),
+        mode: "cors", // Allow cross-origin requests
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify({ userWhitelist })
     })
     .then(response => response.json())
     .then(results => {
