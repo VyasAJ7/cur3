@@ -7,7 +7,7 @@ function checkWhitelist() {
 
     document.getElementById("loading").style.display = "block";
 
-    fetch("https://script.google.com/macros/s/AKfycby9OO6mVH6d82vhvJwWXwRCGhMqPUOKjZFHG1wsSMCYilWE3uiJe-C4vTnQiDzBYA1X/exec", { 
+    fetch("https://script.google.com/macros/s/AKfycbwyK8Et_wobsYodTP50-bX_HhNIhMUGkMYLthI8EQa3s1A9grBY3YmCXbL-7SZE_NfF/exec", { 
         method: "POST",
         mode: "cors", // Allow cross-origin requests
         headers: {
