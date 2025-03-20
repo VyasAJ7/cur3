@@ -7,18 +7,35 @@ function checkWhitelist() {
 
     document.getElementById("loading").style.display = "block";
 
-    fetch("https://script.google.com/macros/s/AKfycbxrQqIqx5aBKihv6VciKFV4CPIOv1mgVEHafllCVFcgaxULmQe6ykIrXVmazK_ritte/exec", { // Replace with actual Web App URL
+    fetch("YOUR_NEW_GOOGLE_APPS_SCRIPT_WEB_APP_URL", { 
         method: "POST",
-        mode: "cors",
+        mode: "cors", // Allow cross-origin requests
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ userWhitelist })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(results => {
         document.getElementById("loading").style.display = "none";
-        document.getElementById("results").innerText = JSON.stringify(results, null, 2);
+
+        var output = "<h3>✅ Whitelist Classification Results</h3><ul>";
+        results.existingResults.forEach(item => {
+            output += `<li><b>${item.website}</b>: ${item.primaryIAB}, ${item.secondaryIAB}, ${item.originCountry}, ${item.websiteSections}</li>`;
+        });
+
+        results.newResults.forEach(item => {
+            output += `<li><b>${item.website}</b>: ${item.primaryIAB}, ${item.secondaryIAB}, ${item.originCountry}, ${item.websiteSections}</li>`;
+        });
+
+        output += `</ul><h4>💰 Cost: $${results.totalCost} (Tokens: ${results.totalTokens})</h4>`;
+
+        document.getElementById("results").innerHTML = output;
     })
     .catch(error => {
         document.getElementById("loading").style.display = "none";
